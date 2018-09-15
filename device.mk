@@ -19,12 +19,8 @@ $(call inherit-product, vendor/samsung/totoro/vendor.mk)
 # Add device package overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/totoro/overlay
 
-# Add LDPI assets, in addition to MDPI
-PRODUCT_AAPT_PREF_CONFIG := ldpi mdpi
-
-## LDPI assets
-PRODUCT_AAPT_CONFIG := normal mdpi ldpi
+# LDPI assets
+PRODUCT_AAPT_CONFIG := normal ldpi mdpi nodpi
 PRODUCT_AAPT_PREF_CONFIG := ldpi
-
 $(call inherit-product, device/ldpi-common/ldpi.mk)
 
