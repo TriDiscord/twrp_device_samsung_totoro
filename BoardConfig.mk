@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2009 The Android Open Source Project
+# Copyright (C) 2022 TeamWin Recovery Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,37 +12,29 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# BoardConfig.mk
-#
-# Product-specific compile-time definitions.
 #
 
-# Import the bcm21553-common BoardConfigCommon.mk
+LOCAL_PATH := device/samsung/totoro
+
 include device/samsung/bcm21553-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/samsung/totoro
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR	:= $(DEVICE_PATH)/bluetooth
-
 # Board
-TARGET_BOARD_PLATFORM				:= bcm21553
-TARGET_BOOTLOADER_BOARD_NAME 			:= totoro
+TARGET_BOARD_PLATFORM        := bcm21553
+TARGET_BOOTLOADER_BOARD_NAME := totoro
+
+# Kernel
+TARGET_KERNEL_CONFIG    := cyanogenmod_totoro_defconfig
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/totoro/mkbootimg.mk
+
+# Filesystem
+BOARD_BOOTIMAGE_PARTITION_SIZE     := 7357568
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 7357568
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 261172480
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 206831616
 
 # Recovery
-BOARD_BOOTIMAGE_PARTITION_SIZE			:= 7357568
-BOARD_RECOVERYIMAGE_PARTITION_SIZE		:= 7357568
-BOARD_SYSTEMIMAGE_PARTITION_SIZE		:= 261172480
-BOARD_USERDATAIMAGE_PARTITION_SIZE		:= 206831616
-BOARD_LDPI_RECOVERY				:= true
-BOARD_USE_CUSTOM_RECOVERY_FONT			:= "<font_7x16.h>"
+BOARD_LDPI_RECOVERY            := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := "<font_7x16.h>"
 
-# Kernel config
-TARGET_KERNEL_CONFIG				:= cyanogenmod_totoro_defconfig
-
-# OTA override
-TARGET_OTA_ASSERT_DEVICE			:= totoro,GT-S5360,GT-S5360B,GT-S5360L,GT-S5369
-
-# TWRP
+# TeamWin Recovery
 DEVICE_RESOLUTION := 240x320
